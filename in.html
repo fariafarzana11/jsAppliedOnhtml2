@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+</head>
+<body>
+    <!-- <div>
+        <div class="player-card" data-name="Lionel Messi">
+            <h3>Lionel Messi</h3>
+            <button class="select-btn" onclick="addToArray(this)">Select</button>
+          </div>
+          
+          <div class="player-card" data-name="Cristiano Ronaldo">
+            <h3>Cristiano Ronaldo</h3>
+            <button style="background-color: blue; color: white;" class="select-btn" onclick="addToArray(this)">Select</button>
+          </div>
+        
+          <p>Selected Players:</p>
+          <ul id="selected-players-list"></ul>
+    </div> -->
+    
+
+    <section class="w-10/12 ml-[120px] mt-5 pb-20">
+      <div class="flex grid-cols-2 gap-5">
+        <div class="grid grid-cols-3 gap-14">
+
+          <div class="rounded-lg shadow-lg bg-gray-500 h-fit w-[300px]" data-name = "Lionel Messi">
+            <a href="#!">
+              <img class="rounded-t-lg h-3/5 w-full" src="images/messi.jpg" alt="">
+            </a>
+            <h5 class="text-slate-200 text-2xl font-bold mt-2 ml-5">Lionel Messi</h5>
+            <p class="ml-5 text-lg text-slate-200">36 Goals . 120 Assist</p>
+            <div class="p-6 text-center">
+              <button type="button" class="btn btn-primary bg-gray-900 px-12 py-3 font-bold text-white rounded-lg players" onclick="addToPlayer(this)">Select</button>
+            </div>
+          </div>
+          <div class="rounded-lg shadow-lg bg-gray-500 h-fit w-[300px]" data-name="Andres">
+            <a href="#!">
+              <img class="rounded-t-lg h-3/5 w-full" src="images/andres.jpg" alt="">
+            </a>
+            <h5 class="text-slate-200 text-2xl font-bold mt-2 ml-5 players-name">Andres</h5>
+            <p class="ml-5 text-lg text-slate-200">36 Goals . 120 Assist</p>
+            <div class="p-6 text-center">
+              <button type="button" class="btn btn-primary bg-gray-900 px-12 py-3 font-bold text-white rounded-lg players" onclick="addToPlayer(this)">Select</button>
+            </div>
+          </div>
+          <div class="rounded-lg shadow-lg bg-gray-500 h-fit w-[300px]" data-name="Mbpappe">
+            <a href="#!">
+              <img class="rounded-t-lg h-3/5 w-full" src="images/mbpappe.jpeg" alt="">
+            </a>
+            <h5 class="text-slate-200 text-2xl font-bold mt-2 ml-5">Mbpappe</h5>
+            <p class="ml-5 text-lg text-slate-200">36 Goals . 120 Assist</p>
+            <div class="p-6 text-center">
+              <button type="button" class="btn btn-primary bg-gray-900 px-12 py-3 font-bold text-white rounded-lg" onclick="addToPlayer(this)" >Select</button>
+            </div>
+          </div>
+          <div class="rounded-lg shadow-lg bg-gray-500 h-fit w-[300px]" data-name="Sadio Mene">
+            <a href="#!">
+              <img class="rounded-t-lg h-3/5 w-full" src="images/mene.jpg" alt="">
+            </a>
+            <h5 class="text-slate-200 text-2xl font-bold mt-2 ml-5">Sadio Mene</h5>
+            <p class="ml-5 text-lg text-slate-200">36 Goals . 120 Assist</p>
+            <div class="p-6 text-center">
+              <button type="button" class="btn btn-primary bg-gray-900 px-12 py-3 font-bold text-white rounded-lg" onclick="addToPlayer(this)" >Select</button>
+            </div>
+          </div>
+          <div class="rounded-lg shadow-lg bg-gray-500 h-fit w-[300px]" data-name="Eden Hazard">
+            <a href="#!">
+              <img class="rounded-t-lg h-3/5 w-full" src="images/eden.jpg" alt="">
+            </a>
+            <h5 class="text-slate-200 text-2xl font-bold mt-2 ml-5">Eden Hazard</h5>
+            <p class="ml-5 text-lg text-slate-200">36 Goals . 120 Assist</p>
+            <div class="p-6 text-center">
+              <button type="button" class="btn btn-primary bg-gray-900 px-12 py-3 font-bold text-white rounded-lg" onclick="addToPlayer(this)" >Select</button>
+            </div>
+          </div>
+          <div class="rounded-lg shadow-lg bg-gray-500 h-fit w-[300px]" data-name="Paul Pogba">
+            <a href="#!">
+              <img class="rounded-t-lg h-3/5 w-full" src="images/pogba.jpg" alt="">
+            </a>
+            <h5 class="text-slate-200 text-2xl font-bold mt-2 ml-5">Paul Pogba</h5>
+            <p class="ml-5 text-lg text-slate-200">36 Goals . 120 Assist</p>
+            <div class="p-6 text-center">
+              <button type="button" class="btn btn-primary bg-gray-900 px-12 py-3 font-bold text-white rounded-lg" onclick="addToPlayer(this)" >Select</button>
+            </div>
+          </div>     
+        </div>
+        <!-- CART Selected player part -->
+        <div class="grid grid-cols-1 ml-[120px]">
+          <div class="rounded-lg shadow-lg bg-gray-700  text-center p-4 selected">
+            <h1 class="text-2xl text-white">Selected - <span id="total-select">0</span>
+            </h1>
+            <hr>
+            <div class="p-6 text-center">
+              <h5 class="text-2xl font-bold mb-2">
+                <ol type="1" id="players-cart">
+
+                </ol>
+              </h5>
+            </div>
+          </div>
+
+          <!-- Budget part  -->
+          <div class="bg-gray-700 text-center text-black budget p-5 rounded-lg mt-32 w-[400px]">
+            <h1 class="text-2xl text-white">Player Budget</h1>
+            <hr>
+            <div class="grid grid-cols-2 mt-2 text-center">
+              <h2 class="inline text-white">Per Player</h2>
+              <input id="per-player-field" no-special-character="^[0-9-]*$" tabindex="0" ng-model="registrationField.mobilenumber" class="text-right px-2 py-1 w-full">
+              <div class="px-12 py-6 w-5">
+                <button id="btn-calculate" class="bg-gray-900 text-white rounded p-3 w-[130px] ml-[90px] calculator">Calculate</button>
+              </div>
+            </div>
+            <div class="grid grid-cols-2 ml-4">
+              <h2 class="inline text-white">Player Expenses</h2>
+              <h2 class="text-white">$<span id="player-expenses">00</span></h2>
+            </div>
+            <div class="grid grid-cols-2 mt-4 text-center">
+              <h2 class="inline text-white">Manager</h2>
+              <input id="manager-field" no-special-character="^[0-9-]*$" tabindex="0" ng-model="registrationField.mobilenumber" class="text-right px-2 py-1 w-full">
+            </div>
+            <div class="grid grid-cols-2 mt-2 text-center">
+              <h2 class="inline text-white">Coach</h2>
+              <input id="coach-field" no-special-character="^[0-9-]*$" tabindex="0" ng-model="registrationField.mobilenumber" class="text-right  px-2 py-1 w-full">
+
+              <div class="px-2 py-5 w-[280px]">
+                <button id="btn-calculate-total" class="bg-gray-900 text-white rounded p-3  ml-[120px] calculator">Calculate Total</button>
+              </div>
+
+            </div>
+            <div class="grid grid-cols-2 ml-4">
+              <h2 class="inline text-white">Total</h2>
+              <h2 class="text-white">$<span id="total">00</span></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+     
+
+      <script src="./in.js"></script>
+      
+</body>
+</html>
+
